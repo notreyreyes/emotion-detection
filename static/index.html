@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion & Gender Detection</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4">Emotion Detection</h1>
+            <p class="text-gray-400">Upload an image or use webcam to analyze emotions!</p>
+        </header>
+
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="space-y-8">
+                    <div class="mode-selector flex gap-4 justify-center mb-6">
+                        <button id="imageMode" class="mode-btn active" data-mode="image">
+                            <span class="material-symbols-outlined mr-2">upload</span>
+                            Upload
+                        </button>
+                        <button id="videoMode" class="mode-btn" data-mode="video">
+                            <span class="material-symbols-outlined mr-2">camera</span>
+                            Camera
+                        </button>
+                    </div>
+
+                    <div class="upload-container">
+                        <div id="imageUpload" class="upload-section active" data-mode="image">
+                            <div class="upload-box" data-mode="image">
+                                <input type="file" id="imageInput" accept="image/*" class="file-input" data-mode="image">
+                                <label for="imageInput" class="upload-label">
+                                    <span class="material-symbols-outlined text-6xl mb-4">upload</span>
+                                    <span class="text-gray-400">Click to upload image</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="videoUpload" class="upload-section" data-mode="video">
+                            <div class="webcam-container">
+                                <video id="webcam" autoplay playsinline class="w-full aspect-video"></video>
+                                <div class="flex gap-4 mt-4">
+                                    <button id="startAnalysis" class="action-btn">
+                                        <span class="material-symbols-outlined mr-2">camera</span>
+                                        Start Camera
+                                    </button>
+                                    <button id="stopAnalysis" class="action-btn" style="display: none;">
+                                        <span class="material-symbols-outlined mr-2">stop</span>
+                                        Stop Camera
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preview-container">
+                        <div id="imagePreview" class="preview-section active" data-mode="image">
+                            <img id="previewImage" src="" alt="Preview" class="w-full aspect-video object-cover rounded-lg" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-container bg-gray-800 rounded-lg p-6 lg:sticky lg:top-8">
+                    <h2 class="text-2xl font-semibold mb-4">Analysis Results</h2>
+                    <div id="results" class="results">
+                        <p class="text-gray-400 text-center py-8">Upload a file to see results</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html> 
